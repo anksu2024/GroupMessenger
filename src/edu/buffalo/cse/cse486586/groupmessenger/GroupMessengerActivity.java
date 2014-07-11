@@ -1,7 +1,14 @@
 /**
  * NAME: ANKIT SARRAF
  * EMAIL: sarrafan@buffalo.edu
- * Resources: Discussed with Rahul Singh (rsingh33@buffalo.edu)
+ * ABOUT: This is the Main Activity Class (or the Main Thread)
+ * PURPOSE: Whenever the user performs some event this Main Activity
+ *          receives the request and coordinates the actions that are
+ *          to be performed such as
+ *          * Sending of Message to other AVD(s)
+ *          * Receiving Messages from other AVDs
+ *          * Keeping track of the Sequence Numbers, etc.
+ * @author sarrafan 
  */
 
 package edu.buffalo.cse.cse486586.groupmessenger;
@@ -32,15 +39,10 @@ import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * GroupMessengerActivity is the main Activity for the assignment.
- * @author stevko and sarrafan
- */
-
 public class GroupMessengerActivity extends Activity {
 	//Tag for Logging Activity
 	static final String TAG = GroupMessengerActivity.class.getSimpleName();
-	
+
 	//Rg : Last correctly ordered Message received
 	protected static int Rg = 0;
 

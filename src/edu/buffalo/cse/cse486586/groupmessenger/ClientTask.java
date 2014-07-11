@@ -1,6 +1,18 @@
 /**
- * NAME: ANKIT SARRAF
- * EMAIL: sarrafan@buffalo.edu
+ * NAME   : ANKIT SARRAF
+ * EMAIL  : sarrafan@buffalo.edu
+ * ABOUT  : This class defines the Asynchronous Task for the
+ *          purpose sending the message (string) to the
+ *          destination AVD
+ * PURPOSE: Sending messages across network is considered to be
+ *          a heavy task and hence care must be taken while
+ *          performing tasks in the Main or the UI Thread.
+ *          Hence, this modularization has been done to enable
+ *          the Main Thread to just issue the task (of sending
+ *          message to other AVD) to another thread.
+ *          In this manner, the Main Thread stays available for
+ *          new tasks to come as soon as possible.
+ * @author sarrafan
  */
 
 package edu.buffalo.cse.cse486586.groupmessenger;
@@ -14,12 +26,6 @@ import java.net.UnknownHostException;
 import android.os.AsyncTask;
 import android.util.Log;
 
-/***
- * ClientTask is an AsyncTask that should send a string over the network.
- * It is created by ClientTask.executeOnExecutor() call 
- * on detecting the click of a Send key button
- * @author stevko and sarrafan
- */
 class ClientTask extends AsyncTask<String, Void, Void> {
 	@Override
 	protected Void doInBackground(String ... msgs) {
@@ -28,13 +34,14 @@ class ClientTask extends AsyncTask<String, Void, Void> {
 		try {
 			String msgToSend = msgs[0];
 			String pppp = msgs[1] + "AAAAA";
-			
+
 			Log.e("ANKIT", "Value ::: " + pppp);
 			Log.i("ANKIT", "In client");
 
 			/**
 			 * If the message has the Sequence number = -1, then only unicast it to the Sequencer
-			 * Else if it has the sequence number >= 0 then it represents a message that is to be Multicast from sequencer 
+			 * Else if it has the sequence number >= 0 then it represents a message that is to be
+			 * Multicast from sequencer 
 			 */
 
 			//sequenceNumber => Sequence Number of incoming messages
@@ -51,7 +58,8 @@ class ClientTask extends AsyncTask<String, Void, Void> {
 				 */
 
 				Socket socket = new Socket
-						(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}), Integer.parseInt(Constants.REMOTE_PORT0));
+						(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}), 
+								Integer.parseInt(Constants.REMOTE_PORT0));
 				Log.e("ANKIT", "Message sent from AVD : " + msgToSend);
 
 				printWriterOut = new PrintWriter(socket.getOutputStream(), true);
@@ -70,16 +78,17 @@ class ClientTask extends AsyncTask<String, Void, Void> {
 				 */
 
 				String [] remotePorts = {
-											Constants.REMOTE_PORT0,
-											Constants.REMOTE_PORT1,
-											Constants.REMOTE_PORT2, 
-											Constants.REMOTE_PORT3,
-											Constants.REMOTE_PORT4
-										};
+						Constants.REMOTE_PORT0,
+						Constants.REMOTE_PORT1,
+						Constants.REMOTE_PORT2, 
+						Constants.REMOTE_PORT3,
+						Constants.REMOTE_PORT4
+				};
 				for(int i = 0 ; i < Constants.MAX ; i++) {
 					Socket [] socket = new Socket[Constants.MAX];
 					socket[i] = new Socket
-							(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}), Integer.parseInt(remotePorts[i]));
+							(InetAddress.getByAddress(new byte[]{10, 0, 2, 2}), 
+									Integer.parseInt(remotePorts[i]));
 
 					printWriterOut = new PrintWriter(socket[i].getOutputStream(), true);
 					printWriterOut.write(msgToSend);

@@ -1,6 +1,12 @@
 /**
  * NAME: ANKIT SARRAF
  * EMAIL: sarrafan@buffalo.edu
+ * ABOUT: This class receives the requests from the main activity
+ *        and adds data to the SQLite Table which is maintained
+ * PURPOSE: There is no specific usage of the content provider for
+ *          the project. But Prof. Steve Ko had asked to Implement it
+ *          so that students could understand how to use it.
+ * @author sarrafan
  */
 
 package edu.buffalo.cse.cse486586.groupmessenger;
@@ -16,22 +22,14 @@ import android.net.Uri;
 import android.util.Log;
 
 /**
+ * Notes By Prof. Steve Ko:
  * GroupMessengerProvider is a key-value table. Once again, please note that we do not implement
  * full support for SQL as a usual ContentProvider does. We re-purpose ContentProvider's interface
  * to use it as a key-value table.
  * 
- * Please read:
- * 
- * http://developer.android.com/guide/topics/providers/content-providers.html
- * http://developer.android.com/reference/android/content/ContentProvider.html
- * 
- * before you start to get yourself familiarized with ContentProvider.
- * 
  * There are two methods you need to implement---insert() and query(). Others are optional and
  * will not be tested.
  * 
- * @author stevko and sarrafan
- *
  */
 public class GroupMessengerProvider extends ContentProvider {
 	//Tag for Logging Activity
@@ -55,7 +53,8 @@ public class GroupMessengerProvider extends ContentProvider {
 		int deletedRows = myDB.delete(DatabaseHelper.TABLE_NAME, selection + "=?", selectionArgs);
 
 		//To indicate how many rows (row with key value as selectionArgs[0]
-		/**Log.d(TAG, "Inside delete. Deleted # " + deletedRows + " Row with Key - " + selectionArgs[0]);*/
+		/*Log.d(TAG, 
+		  "Inside delete. Deleted # " + deletedRows + " Row with Key - " + selectionArgs[0]);*/
 
 		//Return 0 if no row deleted
 		return deletedRows;
@@ -70,17 +69,17 @@ public class GroupMessengerProvider extends ContentProvider {
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
 		/*
-		 * values will have two columns (a key
-		 * column and a value column) and one row that contains the actual (key, value) pair to be
-		 * inserted.
+		 * values will have two columns (a key column and a value column) 
+		 * and one row that contains the actual (key, value) pair to be inserted.
 		 * 
-		 * For actual storage, you can use any option. If you know how to use SQL, then you can use
-		 * SQLite. But this is not a requirement. You can use other storage options, such as the
-		 * internal storage option that I used in PA1. If you want to use that option, please
-		 * take a look at the code for PA1.
+		 * For actual storage, you can use any of the two options:
+		 * * Using SQLite to store data in tabular form
+		 * * Using files to store data
+		 * * Using Hash Tables to store data
+		 * * Some other not mentioned here
+		 * In this project SQLite is used to meet the purpose.
 		 */
 
-		/**<MY CODE>*/
 		//Retrieve the Database to work on
 		SQLiteDatabase myDB = databaseHelper.getWritableDatabase();
 
@@ -166,7 +165,8 @@ public class GroupMessengerProvider extends ContentProvider {
 
 			selectionArgs = new String [] {selection};
 
-			cursor = myDB.query(DatabaseHelper.TABLE_NAME, columns, columns[0] + "=?", selectionArgs, null, null, null);
+			cursor = myDB.query(DatabaseHelper.TABLE_NAME, columns, columns[0] + "=?", 
+					selectionArgs, null, null, null);
 
 			Log.e(TAG, "Number of Rows Retrieved => " + cursor.getCount());
 		} catch(Exception e) {
