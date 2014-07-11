@@ -15,7 +15,7 @@ NOTE: FYR the project specifications and test scripts are also provided in the R
 
 2) This directory contains the python scripts that are to be executed to test the project
 
-3) Under this directory in the Terminal execute the script 'create_avd.py' to create 2 AVDs Use the command "python create_avd.py 2"
+3) Under this directory in the Terminal execute the script 'create_avd.py' to create 2 AVDs Use the command "python create_avd.py 5"
 
 4) Once the AVDs are created, excute the script 'run_avd.py' script to start 2 AVDs For the purpose use the command: "python run_avd.py 2"
 
@@ -23,16 +23,14 @@ NOTE: FYR the project specifications and test scripts are also provided in the R
 
 6) To do this execute the script 'set_redir.py' Command to be used: "python set_redir.py 10000" This command will make sure that all the AVDs are connected to each other by a single Server port number 10000
 
-7) Now the tester is good to go ahead with the execution of the App on the AVDs.
+7) Now the Tester is good to go ahead with the execution of the App on the AVDs
 
-8) I used Eclipse to install the SimpleMessenger App on my AVDs.
+8) For this project Eclipse was used to install the SimpleMessenger App on the AVDs
 
-9) Once the App is up and running on both the AVDs, the tester may play around with it.
+9) Once the App is up and running on both the AVDs, the Tester may play around with it
 
-10) Type some text in Edit Text given in the bottom of the App in the AVD.
+10) Type some text in Edit Text given in the bottom of the App in the AVD
 
-11) Press Enter Key and BAM!! the other AVD receives the text. Same goes with the other AVD.
+11) Press Enter Key and all other AVDs receive the text. Same goes with the other AVD
 
-Please send your comments or let me know if you find a bug to sarrafan[at]buffalo[dot]edu
-
-Thanks.
+To send in comments or report a bug: sarrafan[at]buffalo[dot]edu
