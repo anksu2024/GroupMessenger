@@ -33,4 +33,16 @@ NOTE: FYR the project specifications and test scripts are also provided in the R
 
 11) Press Enter Key and all other AVDs receive the text. Same goes with the other AVD
 
+TO DO AUTOMATED TESTING (Mac OS):
+
+1) Use the script "groupmessenger-grading.osx" script given in the Test Script folder to perform the automated testing of the code.
+
+2) Make sure that "775" permissions are provided to the script. To do that use : chmod 755 groupmessenger-grading.osx
+
+3) Install the App on the AVDs.
+
+4) Execute the script from its directory using : ./groupmessenger-grading.osx
+
+5) Watch the MAGIC happen... ;)
+
 To send in comments or report a bug: sarrafan[at]buffalo[dot]edu
