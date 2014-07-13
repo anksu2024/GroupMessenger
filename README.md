@@ -15,9 +15,9 @@ NOTE: FYR the project specifications and test scripts are also provided in the R
 
 2) This directory contains the python scripts that are to be executed to test the project
 
-3) Under this directory in the Terminal execute the script 'create_avd.py' to create 2 AVDs Use the command "python create_avd.py 5"
+3) Under this directory in the Terminal execute the script 'create_avd.py' to create 5 AVDs Use the command "python create_avd.py 5"
 
-4) Once the AVDs are created, excute the script 'run_avd.py' script to start 2 AVDs For the purpose use the command: "python run_avd.py 2"
+4) Once the AVDs are created, excute the script 'run_avd.py' script to start 5 AVDs For the purpose use the command: "python run_avd.py 5"
 
 5) When the 2 AVDs are up and running, each AVD needs to be assigned a port number
 
