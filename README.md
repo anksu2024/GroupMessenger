@@ -25,7 +25,7 @@ NOTE: FYR the project specifications and test scripts are also provided in the R
 
 7) Now the Tester is good to go ahead with the execution of the App on the AVDs
 
-8) For this project Eclipse was used to install the SimpleMessenger App on the AVDs
+8) For this project Eclipse was used to install the GroupMessenger App on the AVDs
 
 9) Once the App is up and running on both the AVDs, the Tester may play around with it
 
