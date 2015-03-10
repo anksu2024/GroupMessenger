@@ -1,7 +1,7 @@
 GroupMessenger
 ==============
 
-Group Chatting Applications to simulate group communication among 5 Android Devices
+Group Chatting Applications to simulate group communication among 5 Android Devices. Something similar to what Whatsapp does
 
 PROJECT SPECIFICATION: https://docs.google.com/document/d/1KxjccTa7bza9eQWsNMCqkZIkGR7QbUHQYv_LlQUYZMA/pub
 
